@@ -40,13 +40,15 @@ function renderProjectCard(project, container) {
     });
   }
 
-  // Un clic (ou Entrée au clavier) ouvre la galerie photo du projet
-  const openThisGallery = () => openGallery(project);
-  card.addEventListener('click', openThisGallery);
+  // Un clic (ou Entrée au clavier) ouvre la page de détail du projet
+  const goToProject = () => {
+    window.location.href = `project.html?slug=${encodeURIComponent(project.slug)}`;
+  };
+  card.addEventListener('click', goToProject);
   card.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      openThisGallery();
+      goToProject();
     }
   });
 
@@ -81,80 +83,3 @@ if (partnersContainer && typeof partners !== 'undefined') {
   partners.forEach(renderPartnerItem);
   partners.forEach(renderPartnerItem);
 }
-
-// ==========================================================
-// GALERIE PHOTO (LIGHTBOX)
-// ==========================================================
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxTitle = document.getElementById('lightbox-title');
-const lightboxMeta = document.getElementById('lightbox-meta');
-const lightboxLink = document.getElementById('lightbox-link');
-const lightboxPrev = document.getElementById('lightbox-prev');
-const lightboxNext = document.getElementById('lightbox-next');
-const lightboxClose = document.getElementById('lightbox-close');
-
-let currentGallery = [];
-let currentIndex = 0;
-
-function openGallery(project) {
-  // Utilise project.images s'il y a au moins une photo, sinon retombe sur la seule "cover"
-  currentGallery = (project.images && project.images.length > 0)
-    ? project.images
-    : [project.cover];
-  currentIndex = 0;
-
-  lightboxTitle.textContent = project.title;
-  lightboxMeta.textContent = `${project.type} — ${project.year}`;
-
-  if (project.link && project.link !== '#') {
-    lightboxLink.href = project.link;
-    lightboxLink.hidden = false;
-  } else {
-    lightboxLink.hidden = true;
-  }
-
-  showImage();
-  lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden'; // empêche le scroll derrière la galerie
-}
-
-function showImage() {
-  lightboxImg.src = currentGallery[currentIndex];
-  // Masque les flèches s'il n'y a qu'une seule photo
-  const multiple = currentGallery.length > 1;
-  lightboxPrev.style.visibility = multiple ? 'visible' : 'hidden';
-  lightboxNext.style.visibility = multiple ? 'visible' : 'hidden';
-}
-
-function closeGallery() {
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function showPrev() {
-  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-  showImage();
-}
-
-function showNext() {
-  currentIndex = (currentIndex + 1) % currentGallery.length;
-  showImage();
-}
-
-lightboxClose.addEventListener('click', closeGallery);
-lightboxPrev.addEventListener('click', showPrev);
-lightboxNext.addEventListener('click', showNext);
-
-// Clic sur le fond sombre (en dehors de l'image) pour fermer
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) closeGallery();
-});
-
-// Navigation au clavier
-document.addEventListener('keydown', (e) => {
-  if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape') closeGallery();
-  if (e.key === 'ArrowLeft') showPrev();
-  if (e.key === 'ArrowRight') showNext();
-});

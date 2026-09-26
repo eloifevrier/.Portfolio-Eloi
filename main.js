@@ -1,72 +1,64 @@
 // Affiche l'année courante dans le footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Génère les deux colonnes de projets (mapping / motion) à partir de projects.js
+// Génère les deux bandeaux de projets (mapping / motion) à partir de projects.js
 const mappingContainer = document.getElementById('mapping-container');
 const motionContainer = document.getElementById('motion-container');
 
-// Compteurs indépendants pour numéroter chaque colonne (01, 02, 03...)
-const columnCounters = { mapping: 0, motion: 0 };
-
-function renderProjectRow(project, container, columnKey) {
-  const row = document.createElement('div');
-  row.className = 'project-row';
-  row.setAttribute('role', 'button');
-  row.setAttribute('tabindex', '0');
-
-  columnCounters[columnKey] += 1;
-  const number = String(columnCounters[columnKey]).padStart(2, '0');
+function renderProjectCard(project, container) {
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
 
   // Si une vidéo est renseignée, on l'ajoute par-dessus l'image (cachée par défaut)
   const videoTag = project.video
     ? `<video class="project-cover project-cover-video" src="${project.video}" muted loop playsinline preload="none"></video>`
     : '';
 
-  row.innerHTML = `
-    <div class="project-number">${number}</div>
-    <div class="project-body">
-      <span class="project-type">${project.type}</span>
-      <div class="project-title">${project.title}</div>
-      <p class="project-desc">${project.description || ''}</p>
-    </div>
+  card.innerHTML = `
     <div class="project-thumb">
       <img class="project-cover" src="${project.cover}" alt="${project.title}" loading="lazy">
       ${videoTag}
     </div>
-    <div class="project-year">${project.year}</div>
+    <div class="project-card-body">
+      <span class="project-type">${project.type}</span>
+      <div class="project-title">${project.title}</div>
+      <div class="project-year">${project.year}</div>
+    </div>
   `;
 
-  // Lance la vidéo au survol (souris) et l'arrête quand on quitte la ligne
+  // Lance la vidéo au survol (souris) et l'arrête quand on quitte la carte
   if (project.video) {
-    const videoEl = row.querySelector('.project-cover-video');
-    row.addEventListener('mouseenter', () => {
+    const videoEl = card.querySelector('.project-cover-video');
+    card.addEventListener('mouseenter', () => {
       videoEl.currentTime = 0;
       videoEl.play().catch(() => {});
     });
-    row.addEventListener('mouseleave', () => {
+    card.addEventListener('mouseleave', () => {
       videoEl.pause();
     });
   }
 
   // Un clic (ou Entrée au clavier) ouvre la galerie photo du projet
   const openThisGallery = () => openGallery(project);
-  row.addEventListener('click', openThisGallery);
-  row.addEventListener('keydown', (e) => {
+  card.addEventListener('click', openThisGallery);
+  card.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       openThisGallery();
     }
   });
 
-  container.appendChild(row);
+  container.appendChild(card);
 }
 
 projects.forEach((project) => {
   if (project.category === 'motion') {
-    renderProjectRow(project, motionContainer, 'motion');
+    renderProjectCard(project, motionContainer);
   } else {
-    // "mapping" et toute catégorie non reconnue vont par défaut dans la colonne mapping
-    renderProjectRow(project, mappingContainer, 'mapping');
+    // "mapping" et toute catégorie non reconnue vont par défaut dans le bandeau mapping
+    renderProjectCard(project, mappingContainer);
   }
 });
 

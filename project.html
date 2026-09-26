@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet — Eloi Février</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">ELOI FÉVRIER</a>
+    <div class="nav-links">
+      <a href="index.html#projets">Projets</a>
+      <a href="index.html#about">À propos</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="project-detail-header">
+    <a href="index.html#projets" class="hero-cta project-back">← Tous les projets</a>
+    <span class="project-type" id="pd-type"></span>
+    <h1 id="pd-title"></h1>
+    <p class="project-detail-desc" id="pd-desc"></p>
+  </div>
+
+  <div class="project-meta-grid">
+    <div class="project-meta-item">
+      <h5>Création</h5>
+      <p id="pd-creation"></p>
+    </div>
+    <div class="project-meta-item">
+      <h5>Réalisation</h5>
+      <p id="pd-realisation"></p>
+    </div>
+    <div class="project-meta-item">
+      <h5>Thématique</h5>
+      <p id="pd-thematique"></p>
+    </div>
+    <div class="project-meta-item">
+      <h5>Client</h5>
+      <p id="pd-client"></p>
+    </div>
+    <div class="project-meta-item">
+      <h5>Lieu</h5>
+      <p id="pd-lieu"></p>
+    </div>
+  </div>
+
+  <div class="project-media">
+    <img class="pd-photo-big" id="pd-photo-1" alt="">
+
+    <div class="pd-video-wrap" id="pd-video-wrap">
+      <iframe id="pd-video" src="" title="Vidéo du projet" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="pd-photos-duo">
+      <img id="pd-photo-2a" alt="">
+      <img id="pd-photo-2b" alt="">
+    </div>
+
+    <img class="pd-photo-big" id="pd-photo-3" alt="">
+  </div>
+</div>
+
+<footer>
+  © <span id="year"></span> — Portfolio Motion Design & Vidéo Mapping
+</footer>
+
+<script src="projects.js"></script>
+<script src="project-detail.js"></script>
+</body>
+</html>

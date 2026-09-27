@@ -153,11 +153,11 @@ const projects = [
     lieu: "Binghamton, New York",
     cover: "Vidéo Mapping/LUMA_04.png",
     images: [
-      "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_04.png",
-      "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_02.png",
-      "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_03.png"
+      "Vidéo Mapping/LUMA_04.png",
+      "Vidéo Mapping/LUMA_02.png",
+      "Vidéo Mapping/LUMA_03.png"
     ],
-    video: "",
+    video: "https://www.youtube.com/watch?v=v9RLVUHBpMY&t=6s",
     link: "https://www.youtube.com/watch?v=v9RLVUHBpMY&t=6s"
   },
   {

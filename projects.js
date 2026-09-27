@@ -68,7 +68,7 @@ const projects = [
       "Vidéo Mapping/MARANS_03.png"
     ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/lDe90W7haq0"
   },
   {
     slug: "châteauduras",
@@ -87,7 +87,7 @@ const projects = [
       "Vidéo Mapping/DURAS_01.png",
     ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/YBtZAoAcYDs"
   },
   {
     slug: "tokyo-light-festival",
@@ -121,7 +121,7 @@ const projects = [
     cover: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=1200&q=80",
     images: [],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/k_j0iiKe7hk"
   },
   {
     slug: "dessiner-encore",
@@ -163,7 +163,7 @@ const projects = [
       "Vidéo Mapping/LUMA_03.png"
     ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/v9RLVUHBpM"
   },
   {
     slug: "royal-mirage-hôtel",
@@ -171,7 +171,7 @@ const projects = [
     type: "Mapping immersif",
     description: "Pour le Ramadan, nous avons créé une ambiance arabique et contemplative tout autour du restaurant de l’hôtel. Une animation lente et savoureuse, afin de ne pas trop déstabiliser les clients du restaurant.",
     year: "2021",
-    category: "Vidéo mapping",
+    category: "motion",
     client: "Royal Mirage Hôtel",
     creation: "Projection sur LED",
     realisation: "Eloi Février",
@@ -184,7 +184,7 @@ const projects = [
       "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80"
     ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/8sPjKjG4QAI"
   },
   {
     slug: "light-of-the-lake",
@@ -205,7 +205,7 @@ const projects = [
       "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1200&q=80"
     ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/U5T6hQLRizQ"
   },
   {
     slug: "9altitudes",

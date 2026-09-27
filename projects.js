@@ -85,7 +85,7 @@ const projects = [
     cover: "Vidéo Mapping/DURAS_02.png",
     images: [
       "Vidéo Mapping/DURAS_01.png"
-            ],
+    ],
     video: "",
     link: "#"
   },

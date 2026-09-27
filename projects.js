@@ -225,7 +225,7 @@ const projects = [
       "Motion Design/9ALTITUDES_03.png",
       "Motion Design/9ALTITUDES_04.png"
     ],
-    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
+    video: "",
     link: "#"
   },
   {

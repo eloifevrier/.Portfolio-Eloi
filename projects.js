@@ -45,7 +45,7 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "Guerre des Paysans (1525)",
     lieu: "Mühlhausen, Allemagne",
-    cover: "https://cdn.myportfolio.com/921e60e9-6d25-458a-91c8-66fa7be17d9f/d0eaaa7c-2042-4a41-83b3-59f52a645bdb_rwc_0x0x1920x1080x1920.png?h=6199b81f8cc31507c986497812ad4465",
+    cover: "Vidéo Mapping/MUHLHAUSEN_01.jpg",
     images: [],
     video: "",
     link: "https://www.youtube.com/watch?v=2wZJsrmmgbk&t=78s"
@@ -62,8 +62,11 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "La ville de Marans",
     lieu: "Marans, France",
-    cover: "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=1200&q=80",
-    images: [],
+    cover: "Vidéo Mapping/MARANS_01.png",
+    images: [
+      "Vidéo Mapping/MARANS_02.png"
+      "Vidéo Mapping/MARANS_03.png"
+    ],
     video: "",
     link: "#"
   },

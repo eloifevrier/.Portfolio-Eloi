@@ -151,7 +151,7 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "Nouvelles énergies",
     lieu: "Binghamton, New York",
-    cover: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1200&q=80",
+    cover: "https://github.com/eloifevrier/.Portfolio-Eloi/blob/6da5bb755c618d55ba741b321397e58574e9901f/Vid%C3%A9o%20Mapping/LUMA_04.png",
     images: [
       "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_04.png",
       "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_02.png",

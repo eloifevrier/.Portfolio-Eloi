@@ -163,7 +163,7 @@ const projects = [
       "Vidéo Mapping/LUMA_03.png"
     ],
     video: "",
-    link: "https://www.youtube.com/embed/v9RLVUHBpM"
+    link: "https://www.youtube.com/embed/v9RLVUHBpMY"
   },
   {
     slug: "royal-mirage-hôtel",
@@ -226,7 +226,7 @@ const projects = [
       "Motion Design/9ALTITUDES_04.png"
     ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/fD4gQDINkpg"
   },
   {
     slug: "generique-studio-x",

@@ -79,8 +79,10 @@ const projects = [
     realisation: "Eloi Février, Les Fantômes",
     thematique: "Histoire de Duras",
     lieu: "Duras, France",
-    cover: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1200&q=80",
-    images: [],
+    cover: "Vidéo Mapping/DURAS_02.png",
+    images: [
+      "Vidéo Mapping/DURAS_01.png"
+            ],
     video: "",
     link: "#"
   },

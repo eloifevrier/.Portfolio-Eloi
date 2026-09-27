@@ -157,13 +157,8 @@ const projects = [
       "Vidéo Mapping/LUMA_02.png",
       "Vidéo Mapping/LUMA_03.png"
     ],
-    <iframe
-  src="https://www.youtube.com/watch?v=v9RLVUHBpMY"
-  width="1920"
-  height="1080"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
+    video: "",
+    link: "#"
   },
   {
     slug: "royal-mirage-hôtel",

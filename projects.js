@@ -47,8 +47,8 @@ const projects = [
     lieu: "Mühlhausen, Allemagne",
     cover: "Vidéo Mapping/MUHLHAUSEN_01.jpg",
     images: [],
-    video: "<iframe width="560" height="315" src="https://www.youtube.com/embed/2wZJsrmmgbk?si=ewjmMZ8UC5fYI2YV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
-    link: "#"
+    video: "",
+    link: "https://www.youtube.com/embed/2wZJsrmmgbk"
   },
   {
     slug: "marans",

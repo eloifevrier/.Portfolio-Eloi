@@ -153,12 +153,12 @@ const projects = [
     lieu: "Binghamton, New York",
     cover: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1200&q=80",
     images: [
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&q=80",
-      "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=1200&q=80",
-      "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=1200&q=80"
+      "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_04.png",
+      "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_02.png",
+      "https://github.com/eloifevrier/.Portfolio-Eloi/blob/bfcaecce80dcfa04424a78ce8a5524590465acd2/Vid%C3%A9o%20Mapping/LUMA_03.png"
     ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/watch?v=v9RLVUHBpMY&t=6s"
   },
   {
     slug: "royal-mirage-hôtel",

@@ -153,12 +153,17 @@ const projects = [
     lieu: "Binghamton, New York",
     cover: "Vidéo Mapping/LUMA_04.png",
     images: [
-      "Vidéo Mapping/LUMA_04.png",
+      "Vidéo Mapping/LUMA_01.png",
       "Vidéo Mapping/LUMA_02.png",
       "Vidéo Mapping/LUMA_03.png"
     ],
-    video: "https://www.youtube.com/watch?v=v9RLVUHBpMY&t=6s",
-    link: "https://www.youtube.com/watch?v=v9RLVUHBpMY&t=6s"
+    <iframe
+  src="https://www.youtube.com/watch?v=v9RLVUHBpMY"
+  width="1920"
+  height="1080"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
   },
   {
     slug: "royal-mirage-hôtel",

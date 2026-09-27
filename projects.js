@@ -221,9 +221,9 @@ const projects = [
     lieu: "Lille, France",
     cover: "Motion Design/9ALTITUDES_01.png",
     images: [
-      "Motion Design/9ALTITUDES_02.png",
+      "Motion Design/9ALTITUDES_04.png",
       "Motion Design/9ALTITUDES_03.png",
-      "Motion Design/9ALTITUDES_04.png"
+      "Motion Design/9ALTITUDES_02.png"
     ],
     video: "",
     link: "https://www.youtube.com/embed/fD4gQDINkpg"

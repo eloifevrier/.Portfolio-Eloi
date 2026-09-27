@@ -126,14 +126,14 @@
   }
 
   .hero h1{
-    font-size:clamp(3rem, 9vw, 7rem);
+    font-size:clamp(2rem, 5vw, 4rem);
     max-width:900px;
     color:#14161A;
   }
 
   .hero-sub{
     margin-top:28px;
-    max-width:520px;
+    max-width:620px;
     color:rgba(20,22,26,0.7);
     font-size:1.15rem;
   }
@@ -187,10 +187,9 @@
 
   .category-head{
     display:flex;
-    align-items:baseline;
-    gap:20px;
+    flex-direction:column;
+    gap:8px;
     margin-bottom:32px;
-    flex-wrap:wrap;
   }
   .category-head h2{
     font-size:clamp(1.8rem, 3.5vw, 2.6rem);

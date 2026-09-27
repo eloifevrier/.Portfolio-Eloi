@@ -15,10 +15,10 @@
 */
 
 const partners = [
-  { name: "Les Fantômes", logo: "https://logo.clearbit.com/lesfantomes.fr?size=256" },
-  { name: "Imagine Films", logo: "https://logo.clearbit.com/imaginefilms.fr?size=256" },
-  { name: "Cutback", logo: "https://logo.clearbit.com/cutback.live?size=256" },
-  { name: "Rencontres Audiovisuelles", logo: "https://logo.clearbit.com/rencontres-audiovisuelles.org?size=256" },
-  { name: "Caribou", logo: "https://logo.clearbit.com/caribou.fr?size=256" },
-  { name: "9:16 Stories", logo: "https://logo.clearbit.com/916stories.com?size=256" }
+  { name: "Les Fantômes", logo: "Autres/LES FANTOMES.png" },
+  { name: "Imagine Films", logo: "Autres/IMAGINE FILMS.png" },
+  { name: "Cutback", logo: "Autres/CUTBACK LIVE.png" },
+  { name: "Rencontres Audiovisuelles", logo: "Autres/RENCONTRES AUDIOVISUELLES.png" },
+  { name: "Caribou", logo: "Autres/CARIBOU.png" },
+  { name: "9:16 Stories", logo: "Autres/9 16 STORIES.png" }
 ];

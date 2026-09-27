@@ -229,21 +229,25 @@ const projects = [
     link: "https://www.youtube.com/embed/fD4gQDINkpg"
   },
   {
-    slug: "generique-studio-x",
-    title: "Générique — Studio X",
+    slug: "futurpreneurs",
+    title: "Futurpreneurs",
     type: "Motion design",
-    description: "Générique d'ouverture animé, pensé pour poser l'univers visuel d'un studio en quelques secondes.",
-    year: "2023",
+    description: "Réalisation en motion design pour les 30 ans de Futurpreneur ! Un organisme canadien à but non lucratif qui accompagne les jeunes entrepreneurs dans le lancement de leur activité. Script, storyboard, identité visuelle, animation… Bref, un projet entièrement sur mesure ! Encore un grand merci à Afoali pour ta confiance !",
+    year: "2026",
     category: "motion",
-    client: "Studio X",
+    client: "9:16 Stories",
     creation: "Motion design",
-    realisation: "Eloi Février",
-    thematique: "Générique / branding",
-    lieu: "Ville, Pays",
-    cover: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200&q=80",
-    images: [],
+    realisation: "Eloi Février, Afoali Ngwakum",
+    thematique: "30 ans de Futurpreneurs",
+    lieu: "Toronto, Canada",
+    cover: "Motion Design/FUTURPRENEURS_04.png",
+    images: [
+      "Motion Design/FUTURPRENEURS_01.png",
+      "Motion Design/FUTURPRENEURS_02.png",
+      "Motion Design/FUTURPRENEURS_03.png"
+            ],
     video: "",
-    link: "#"
+    link: "https://www.youtube.com/embed/rhahVPDU_r8"
   },
   {
     slug: "elan",

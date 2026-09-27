@@ -242,10 +242,10 @@ const projects = [
     lieu: "Toronto, Canada",
     cover: "Motion Design/FUTURPRENEURS_04.png",
     images: [
-      "Motion Design/FUTURPRENEURS_01.png",
+      "Motion Design/FUTURPRENEURS_03.png",
       "Motion Design/FUTURPRENEURS_02.png",
-      "Motion Design/FUTURPRENEURS_03.png"
-            ],
+      "Motion Design/FUTURPRENEURS_01.png"
+    ],
     video: "",
     link: "https://www.youtube.com/embed/rhahVPDU_r8"
   },

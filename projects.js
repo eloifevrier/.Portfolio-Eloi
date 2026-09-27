@@ -64,7 +64,7 @@ const projects = [
     lieu: "Marans, France",
     cover: "Vidéo Mapping/MARANS_01.png",
     images: [
-      "Vidéo Mapping/MARANS_02.png"
+      "Vidéo Mapping/MARANS_02.png",
       "Vidéo Mapping/MARANS_03.png"
     ],
     video: "",
@@ -84,7 +84,7 @@ const projects = [
     lieu: "Duras, France",
     cover: "Vidéo Mapping/DURAS_02.png",
     images: [
-      "Vidéo Mapping/DURAS_01.png"
+      "Vidéo Mapping/DURAS_01.png",
     ],
     video: "",
     link: "#"

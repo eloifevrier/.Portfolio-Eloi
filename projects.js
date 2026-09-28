@@ -168,7 +168,7 @@ const projects = [
   {
     slug: "royal-mirage-hôtel",
     title: "Royal Mirage Hôtel",
-    type: "Mapping immersif",
+    type: "Motion - Diffusion LED",
     description: "Pour le Ramadan, nous avons créé une ambiance arabique et contemplative tout autour du restaurant de l’hôtel. Une animation lente et savoureuse, afin de ne pas trop déstabiliser les clients du restaurant.",
     year: "2021",
     category: "motion",

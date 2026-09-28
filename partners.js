@@ -20,5 +20,7 @@ const partners = [
   { name: "Cutback", logo: "Autres/CUTBACK LIVE.png" },
   { name: "Rencontres Audiovisuelles", logo: "Autres/RENCONTRES AUDIOVISUELLES.png" },
   { name: "Caribou", logo: "Autres/CARIBOU.png" },
+  { name: "Caribou", logo: "Autres/BRETAGNE ENCHERES.png" },
+  { name: "Caribou", logo: "Autres/ATELIERS DES LUMIERES.png" },
   { name: "9:16 Stories", logo: "Autres/9 16 STORIES.png" }
 ];

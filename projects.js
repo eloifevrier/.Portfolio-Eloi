@@ -101,7 +101,7 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "Miroir",
     lieu: "Tokyo, Japon",
-    cover: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=1200&q=80",
+    cover: "Vidéo Mapping/TOKYO_01.png",
     images: [],
     video: "",
     link: "#"
@@ -118,7 +118,7 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "Monde de demain",
     lieu: "Osaka, Japon",
-    cover: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=1200&q=80",
+    cover: "Vidéo Mapping/OSAKA_01.png",
     images: [],
     video: "",
     link: "https://www.youtube.com/embed/k_j0iiKe7hk"
@@ -250,17 +250,17 @@ const projects = [
     link: "https://www.youtube.com/embed/rhahVPDU_r8"
   },
   {
-    slug: "elan",
-    title: "Élan — Identité de marque",
-    type: "Motion design / branding (projet fictif)",
-    description: "Système d'animation modulaire construit autour d'une nouvelle identité de marque.",
-    year: "2023",
+    slug: "bretagne-enchères",
+    title: "Bretagne Enchères",
+    type: "Motion - Diffusion",
+    description: "À travers une approche poétique et un univers graphique affirmé, je souhaite sublimer l’histoire de Bretagne Enchères. De sa création à son évolution, jusqu’à ses ambitions futures, cette animation mettra en lumière l’identité, les valeurs et le rayonnement de la maison. Diffusion intérieure pour trois soirées privatifs + adaptation pour les réseaux sociaux.",
+    year: "2026",
     category: "motion",
-    client: "Client fictif",
-    creation: "Motion design / branding",
+    client: "Bretagne Enchères",
+    creation: "Projection - Motion design",
     realisation: "Eloi Février",
-    thematique: "Identité de marque",
-    lieu: "Ville, Pays",
+    thematique: "L'évolution de la maison",
+    lieu: "Rennes, Bretagne",
     cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
     images: [
       "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",
@@ -271,17 +271,17 @@ const projects = [
     link: "#"
   },
   {
-    slug: "fragments",
-    title: "Fragments",
-    type: "Générique animé (projet fictif)",
-    description: "Un générique construit comme un puzzle visuel, où chaque fragment révèle un peu plus l'histoire.",
+    slug: "1er-prototype",
+    title: "1er Prototype",
+    type: "Motion - Animation traditionnelle",
+    description: "Projet pour le Musée d’Orsay sur l’artiste Léopold Chauveau. Ancien médecin, il c’était inspiré des cours d’anatomie pour créer ses petits monstres. Par une animation traditionnelle, j’ai mis en avant les premières phases d’expérimentation de l’artiste.",
     year: "2022",
     category: "motion",
-    client: "Client fictif",
-    creation: "Générique animé",
+    client: "Musée d'Orsayf",
+    creation: "Motion - Animation traditionnelle",
     realisation: "Eloi Février",
-    thematique: "Narration visuelle",
-    lieu: "Ville, Pays",
+    thematique: "Léopold Chauveau",
+    lieu: "Paris, France",
     cover: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80",
     images: [
       "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200&q=80",
@@ -292,17 +292,17 @@ const projects = [
     link: "#"
   },
   {
-    slug: "horizon",
-    title: "Horizon",
-    type: "Motion design publicitaire (projet fictif)",
-    description: "Film publicitaire animé mettant en scène un produit à travers une narration courte et dynamique.",
-    year: "2021",
+    slug: "terre-de-l'elu",
+    title: "Terre de l’Élu",
+    type: "Motion design",
+    description: "Par une animation poétique et singulière, je raconte l’histoire du vignoble : « Terre de l’Élu ». Tout en douceur, j’invite les lecteurs à plonger dans l’univers délicat et savoureux du vin.",
+    year: "2022",
     category: "motion",
-    client: "Client fictif",
-    creation: "Motion design publicitaire",
+    client: "Terre de l’Élu",
+    creation: "Motion design",
     realisation: "Eloi Février",
-    thematique: "Publicité produit",
-    lieu: "Ville, Pays",
+    thematique: "L'histoire du vignoble",
+    lieu: "Angers, France",
     cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",
     images: [
       "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&q=80",
@@ -312,25 +312,4 @@ const projects = [
     video: "",
     link: "#"
   },
-  {
-    slug: "continuum",
-    title: "Continuum",
-    type: "Motion design / communication (projet fictif)",
-    description: "Série d'animations pensées pour accompagner une campagne de communication sur plusieurs mois.",
-    year: "2020",
-    category: "motion",
-    client: "Client fictif",
-    creation: "Motion design",
-    realisation: "Eloi Février",
-    thematique: "Campagne de communication",
-    lieu: "Ville, Pays",
-    cover: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&q=80",
-    images: [
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80",
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80"
-    ],
-    video: "",
-    link: "#"
-  }
 ];

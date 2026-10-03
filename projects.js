@@ -286,26 +286,6 @@ const projects = [
     link: "#"
   },
   {
-    slug: "1er-prototype",
-    title: "1er Prototype",
-    type: "Motion - Animation traditionnelle",
-    description: "Projet pour le Musée d’Orsay sur l’artiste Léopold Chauveau. Ancien médecin, il c’était inspiré des cours d’anatomie pour créer ses petits monstres. Par une animation traditionnelle, j’ai mis en avant les premières phases d’expérimentation de l’artiste.",
-    year: "2022",
-    category: "motion",
-    client: "Musée d'Orsayf",
-    creation: "Motion - Animation traditionnelle",
-    realisation: "Eloi Février",
-    thematique: "Léopold Chauveau",
-    lieu: "Paris, France",
-    cover: "Motion Design/ORSAY_04.png",
-    images: [
-      "Motion Design/ORSAY_01.png",
-      "Motion Design/ORSAY_03.png"
-    ],
-    video: "https://www.youtube.com/embed/rvenRPF1TNk",
-    link: "#"
-  },
-  {
     slug: "terre-de-l'elu",
     title: "Terre de l’Élu",
     type: "Motion design",

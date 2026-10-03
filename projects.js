@@ -282,8 +282,8 @@ const projects = [
       "Motion Design/ENCHERES_04.png",
       "Motion Design/ENCHERES_02.png"
     ],
-    video: "https://www.youtube.com/embed/LH6bEHyGnDY",
-    link: "#"
+    video: "",
+    link: "https://www.youtube.com/embed/LH6bEHyGnDY"
   },
   {
     slug: "terre-de-l'elu",
@@ -303,7 +303,7 @@ const projects = [
       "Motion Design/ELU_02.png",
       "Motion Design/ELU_01.png"
     ],
-    video: "https://www.youtube.com/embed/PMpBNc2cma0",
-    link: "#"
+    video: "",
+    link: "https://www.youtube.com/embed/PMpBNc2cma0"
   },
 ];

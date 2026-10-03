@@ -212,6 +212,25 @@
     display:none;
   }
 
+  /* Curseur / barre de progression du défilement horizontal */
+  .h-scroll-track{
+    position:relative;
+    height:2px;
+    background:var(--border);
+    margin:8px 0 48px;
+    border-radius:2px;
+  }
+
+  .h-scroll-thumb{
+    position:absolute;
+    top:0; left:0;
+    height:100%;
+    width:20%;
+    background:var(--text);
+    border-radius:2px;
+    transition:left 0.1s linear;
+  }
+
   .project-card{
     flex:0 0 340px;
     scroll-snap-align:start;

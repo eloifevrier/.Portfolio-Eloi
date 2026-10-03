@@ -64,6 +64,33 @@ projects.forEach((project) => {
   }
 });
 
+// Curseur de défilement : relie chaque bandeau horizontal à sa petite barre de progression
+function setupScrollCursor(scrollEl, thumbEl) {
+  if (!scrollEl || !thumbEl) return;
+
+  const update = () => {
+    const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
+    // Largeur du curseur proportionnelle à la part de contenu visible
+    const thumbWidthPercent = Math.max((scrollEl.clientWidth / scrollEl.scrollWidth) * 100, 8);
+    thumbEl.style.width = `${thumbWidthPercent}%`;
+
+    if (maxScroll <= 0) {
+      thumbEl.style.left = '0%';
+      return;
+    }
+    const progress = scrollEl.scrollLeft / maxScroll; // de 0 à 1
+    const maxLeftPercent = 100 - thumbWidthPercent;
+    thumbEl.style.left = `${progress * maxLeftPercent}%`;
+  };
+
+  scrollEl.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update(); // position initiale
+}
+
+setupScrollCursor(mappingContainer, document.getElementById('mapping-thumb'));
+setupScrollCursor(motionContainer, document.getElementById('motion-thumb'));
+
 // Génère les logos partenaires à partir de partners.js (dupliqués une fois pour la boucle infinie)
 const partnersContainer = document.getElementById('partners-container');
 

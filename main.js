@@ -65,8 +65,10 @@ projects.forEach((project) => {
 });
 
 // Curseur de défilement : relie chaque bandeau horizontal à sa petite barre de progression
+// (on peut aussi cliquer ou glisser directement sur la barre pour faire défiler les projets)
 function setupScrollCursor(scrollEl, thumbEl) {
   if (!scrollEl || !thumbEl) return;
+  const trackEl = thumbEl.parentElement;
 
   const update = () => {
     const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
@@ -86,6 +88,30 @@ function setupScrollCursor(scrollEl, thumbEl) {
   scrollEl.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   update(); // position initiale
+
+  // Déplace le scroll en fonction d'une position horizontale cliquée sur la barre
+  const scrollToPosition = (clientX) => {
+    const rect = trackEl.getBoundingClientRect();
+    const fraction = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
+    const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
+    scrollEl.scrollLeft = fraction * maxScroll;
+  };
+
+  let isDragging = false;
+
+  trackEl.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    trackEl.setPointerCapture(e.pointerId);
+    scrollToPosition(e.clientX);
+  });
+
+  trackEl.addEventListener('pointermove', (e) => {
+    if (isDragging) scrollToPosition(e.clientX);
+  });
+
+  const stopDragging = () => { isDragging = false; };
+  trackEl.addEventListener('pointerup', stopDragging);
+  trackEl.addEventListener('pointercancel', stopDragging);
 }
 
 setupScrollCursor(mappingContainer, document.getElementById('mapping-thumb'));

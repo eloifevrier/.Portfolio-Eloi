@@ -46,7 +46,11 @@ const projects = [
     thematique: "Guerre des Paysans (1525)",
     lieu: "Mühlhausen, Allemagne",
     cover: "Vidéo Mapping/MUHLHAUSEN_01.jpg",
-    images: [],
+    images: [
+      "Vidéo Mapping/MUHLHAUSEN_02.png",
+      "Vidéo Mapping/MUHLHAUSEN_04.jpg",
+      "Vidéo Mapping/MUHLHAUSEN_03.png"
+    ],
     video: "",
     link: "https://www.youtube.com/embed/2wZJsrmmgbk"
   },
@@ -62,10 +66,11 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "La ville de Marans",
     lieu: "Marans, France",
-    cover: "Vidéo Mapping/MARANS_01.png",
+    cover: "Vidéo Mapping/MARANS_001.png",
     images: [
-      "Vidéo Mapping/MARANS_02.png",
-      "Vidéo Mapping/MARANS_03.png"
+      "Vidéo Mapping/MARANS_03.png",
+      "Vidéo Mapping/MARANS_04.png",
+      "Vidéo Mapping/MARANS_02.png"
     ],
     video: "",
     link: "https://www.youtube.com/embed/lDe90W7haq0"
@@ -82,9 +87,11 @@ const projects = [
     realisation: "Eloi Février, Les Fantômes",
     thematique: "Histoire de Duras",
     lieu: "Duras, France",
-    cover: "Vidéo Mapping/DURAS_02.png",
+    cover: "Vidéo Mapping/DURAS_01.png",
     images: [
-      "Vidéo Mapping/DURAS_01.png",
+      "Vidéo Mapping/DURAS_02.png",
+      "Vidéo Mapping/DURAS_04.png",
+      "Vidéo Mapping/DURAS_03.png"
     ],
     video: "",
     link: "https://www.youtube.com/embed/YBtZAoAcYDs"
@@ -102,7 +109,11 @@ const projects = [
     thematique: "Miroir",
     lieu: "Tokyo, Japon",
     cover: "Vidéo Mapping/TOKYO_01.png",
-    images: [],
+    images: [
+      "Vidéo Mapping/TOKYO_02.png",
+      "Vidéo Mapping/TOKYO_03.png",
+      "Vidéo Mapping/TOKYO_04.png"
+    ],
     video: "",
     link: "#"
   },
@@ -119,7 +130,11 @@ const projects = [
     thematique: "Monde de demain",
     lieu: "Osaka, Japon",
     cover: "Vidéo Mapping/OSAKA_01.png",
-    images: [],
+    images: [
+      "Vidéo Mapping/OSAKA_02.png",
+      "Vidéo Mapping/OSAKA_03.png",
+      "Vidéo Mapping/OSAKA_04.png"
+      ],
     video: "",
     link: "https://www.youtube.com/embed/k_j0iiKe7hk"
   },
@@ -135,11 +150,11 @@ const projects = [
     realisation: "Eloi Février, Valentine Boidron",
     thematique: "BD de Coco : Dessiner Encore",
     lieu: "Paris, France",
-    cover: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=80",
+    cover: "Vidéo Mapping/COCO_02.png",
     images: [
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1200&q=80",
-      "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80"
+      "Vidéo Mapping/COCO_04.png",
+      "Vidéo Mapping/COCO_03.png",
+      "Vidéo Mapping/COCO_01.png"
     ],
     video: "",
     link: "#"
@@ -198,11 +213,11 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "La ville de Lucerne",
     lieu: "Lucerne, Suisse",
-    cover: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1200&q=80",
+    cover: "Vidéo Mapping/LUCERNE_02.png",
     images: [
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=80",
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1200&q=80"
+      "Vidéo Mapping/LUCERNE_01.png",
+      "Vidéo Mapping/LUCERNE_04.png",
+      "Vidéo Mapping/LUCERNE_03.png"
     ],
     video: "",
     link: "https://www.youtube.com/embed/U5T6hQLRizQ"

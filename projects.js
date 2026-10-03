@@ -192,11 +192,11 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "Arabic Ambiant",
     lieu: "Dubai, Emirats",
-    cover: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=1200&q=80",
+    cover: "Motion Design/ROYAL_01.jpg",
     images: [
-      "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=1200&q=80",
-      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1200&q=80",
-      "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80"
+      "Motion Design/ROYAL_03.jpg",
+      "Motion Design/ROYAL_02.jpg",
+      "Motion Design/ROYAL_04.png"
     ],
     video: "",
     link: "https://www.youtube.com/embed/8sPjKjG4QAI"
@@ -276,13 +276,13 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "L'évolution de la maison",
     lieu: "Rennes, Bretagne",
-    cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
+    cover: "Motion Design/ENCHERES_01.png",
     images: [
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&q=80",
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80"
+      "Motion Design/ENCHERES_03.png",
+      "Motion Design/ENCHERES_04.png",
+      "Motion Design/ENCHERES_02.png"
     ],
-    video: "",
+    video: "https://www.youtube.com/embed/LH6bEHyGnDY",
     link: "#"
   },
   {
@@ -297,13 +297,12 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "Léopold Chauveau",
     lieu: "Paris, France",
-    cover: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80",
+    cover: "Motion Design/ORSAY_04.png",
     images: [
-      "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200&q=80",
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
-      "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?w=1200&q=80"
+      "Motion Design/ORSAY_01.png",
+      "Motion Design/ORSAY_03.png"
     ],
-    video: "",
+    video: "https://www.youtube.com/embed/rvenRPF1TNk",
     link: "#"
   },
   {
@@ -318,13 +317,13 @@ const projects = [
     realisation: "Eloi Février",
     thematique: "L'histoire du vignoble",
     lieu: "Angers, France",
-    cover: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",
+    cover: "Motion Design/ELU_04.png",
     images: [
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&q=80",
-      "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?w=1200&q=80",
-      "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200&q=80"
+      "Motion Design/ELU_03.png",
+      "Motion Design/ELU_02.png",
+      "Motion Design/ELU_01.png"
     ],
-    video: "",
+    video: "https://www.youtube.com/embed/PMpBNc2cma0",
     link: "#"
   },
 ];

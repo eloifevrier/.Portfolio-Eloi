@@ -98,18 +98,48 @@ function setupScrollCursor(scrollEl, thumbEl) {
   };
 
   let isDragging = false;
+  let pendingX = null;
+  let rafId = null;
+
+  // On ne met à jour le scroll qu'une fois par frame (via requestAnimationFrame)
+  // plutôt qu'à chaque micro-mouvement de la souris : le suivi est plus doux.
+  const scheduleScroll = (clientX) => {
+    pendingX = clientX;
+    if (rafId !== null) return;
+    rafId = requestAnimationFrame(() => {
+      scrollToPosition(pendingX);
+      rafId = null;
+    });
+  };
+
+  const startDragging = (clientX) => {
+    isDragging = true;
+    thumbEl.classList.add('dragging');
+    // Désactive le "snap" des cartes pendant le glissement : il crée des à-coups
+    scrollEl.style.scrollSnapType = 'none';
+    scrollToPosition(clientX);
+  };
+
+  const stopDragging = () => {
+    if (!isDragging) return;
+    isDragging = false;
+    thumbEl.classList.remove('dragging');
+    scrollEl.style.scrollSnapType = '';
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  };
 
   trackEl.addEventListener('pointerdown', (e) => {
-    isDragging = true;
     trackEl.setPointerCapture(e.pointerId);
-    scrollToPosition(e.clientX);
+    startDragging(e.clientX);
   });
 
   trackEl.addEventListener('pointermove', (e) => {
-    if (isDragging) scrollToPosition(e.clientX);
+    if (isDragging) scheduleScroll(e.clientX);
   });
 
-  const stopDragging = () => { isDragging = false; };
   trackEl.addEventListener('pointerup', stopDragging);
   trackEl.addEventListener('pointercancel', stopDragging);
 }

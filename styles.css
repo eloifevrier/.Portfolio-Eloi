@@ -179,6 +179,63 @@
     font-size:1rem;
   }
 
+  /* ---------- ÉTAPES DE CRÉATION ---------- */
+  .process-section{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+
+  .process-steps{
+    display:flex;
+    padding:0 40px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .process-steps::-webkit-scrollbar{
+    display:none;
+  }
+
+  .process-step{
+    flex:1 1 0;
+    min-width:180px;
+    padding:0 28px 8px 0;
+    border-right:1px solid var(--border);
+    margin-right:28px;
+  }
+  .process-step:last-child{
+    border-right:none;
+    margin-right:0;
+  }
+
+  .process-number{
+    display:block;
+    font-family:Arial,sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--accent-2);
+    margin-bottom:16px;
+  }
+
+  .process-title{
+    font-family:Arial,sans-serif;
+    font-weight:800;
+    font-size:1.1rem;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    color:var(--text);
+  }
+
+  .process-desc{
+    color:var(--muted);
+    font-size:0.9rem;
+    margin-top:10px;
+  }
+
+  @media (max-width:800px){
+    .process-steps{padding:0 20px;}
+    .process-step{min-width:160px;}
+  }
+
   /* ---------- PROJECTS: BANDEAUX HORIZONTAUX PAR CATÉGORIE ---------- */
   .project-category{
     padding:64px 0;
@@ -231,10 +288,14 @@
     left:0;
     height:4px;
     width:20%;
-    background:var(--text);
+    background:var(--muted);
     border-radius:4px;
     transition:left 0.1s linear;
     pointer-events:none;
+  }
+
+  .h-scroll-thumb.dragging{
+    transition:none;
   }
 
   .project-card{

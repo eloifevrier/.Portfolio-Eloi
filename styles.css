@@ -133,9 +133,14 @@
 
   .hero-sub{
     margin-top:28px;
-    max-width:620px;
+    max-width:820px;
     color:rgba(20,22,26,0.7);
     font-size:1.15rem;
+  }
+
+  /* Sur petit écran, le texte revient à la ligne naturellement (pas de coupure forcée) */
+  @media (max-width:900px){
+    .desktop-br{display:none;}
   }
 
   .hero-cta{
@@ -262,6 +267,7 @@
     gap:24px;
     overflow-x:auto;
     padding:0 40px 12px;
+    scroll-padding-left:40px;
     scroll-snap-type:x proximity;
     scrollbar-width:none;
   }
@@ -364,7 +370,7 @@
   }
 
   @media (max-width:700px){
-    .h-scroll{padding:0 20px 12px;}
+    .h-scroll{padding:0 20px 12px; scroll-padding-left:20px;}
     .project-card{flex-basis:260px;}
   }
 

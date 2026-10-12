@@ -1,168 +1,609 @@
-// Affiche l'année courante dans le footer
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Génère les deux bandeaux de projets (mapping / motion) à partir de projects.js
-const mappingContainer = document.getElementById('mapping-container');
-const motionContainer = document.getElementById('motion-container');
-
-function renderProjectCard(project, container) {
-  const card = document.createElement('div');
-  card.className = 'project-card';
-  card.setAttribute('role', 'button');
-  card.setAttribute('tabindex', '0');
-
-  // Si une vidéo est renseignée, on l'ajoute par-dessus l'image (cachée par défaut)
-  const videoTag = project.video
-    ? `<video class="project-cover project-cover-video" src="${project.video}" muted loop playsinline preload="none"></video>`
-    : '';
-
-  card.innerHTML = `
-    <div class="project-thumb">
-      <img class="project-cover" src="${project.cover}" alt="${project.title}" loading="lazy">
-      ${videoTag}
-    </div>
-    <div class="project-card-body">
-      <span class="project-type">${project.type}</span>
-      <div class="project-title">${project.title}</div>
-      <div class="project-year">${project.year}</div>
-    </div>
-  `;
-
-  // Lance la vidéo au survol (souris) et l'arrête quand on quitte la carte
-  if (project.video) {
-    const videoEl = card.querySelector('.project-cover-video');
-    card.addEventListener('mouseenter', () => {
-      videoEl.currentTime = 0;
-      videoEl.play().catch(() => {});
-    });
-    card.addEventListener('mouseleave', () => {
-      videoEl.pause();
-    });
+:root{
+    --bg:#FFFFFF;
+    --bg-elevated:#F5F4F1;
+    --text:#14161A;
+    --muted:#6B7078;
+    --accent-1:#7B61FF;
+    --accent-2:#00A896;
+    --border:#E4E2DD;
+    --max-w:1200px;
   }
 
-  // Un clic (ou Entrée au clavier) ouvre la page de détail du projet
-  const goToProject = () => {
-    window.location.href = `project.html?slug=${encodeURIComponent(project.slug)}`;
-  };
-  card.addEventListener('click', goToProject);
-  card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      goToProject();
-    }
-  });
+  *{margin:0;padding:0;box-sizing:border-box;}
 
-  container.appendChild(card);
-}
+  html{scroll-behavior:smooth;}
 
-projects.forEach((project) => {
-  if (project.category === 'motion') {
-    renderProjectCard(project, motionContainer);
-  } else {
-    // "mapping" et toute catégorie non reconnue vont par défaut dans le bandeau mapping
-    renderProjectCard(project, mappingContainer);
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Fira Sans',Arial,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
   }
-});
 
-// Curseur de défilement : relie chaque bandeau horizontal à sa petite barre de progression
-// (on peut aussi cliquer ou glisser directement sur la barre pour faire défiler les projets)
-function setupScrollCursor(scrollEl, thumbEl) {
-  if (!scrollEl || !thumbEl) return;
-  const trackEl = thumbEl.parentElement;
+  h1,h2,h3, .display{
+    font-family:Arial,sans-serif;
+    font-weight:900;
+    letter-spacing:-0.02em;
+    line-height:0.95;
+  }
 
-  const update = () => {
-    const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
-    // Largeur du curseur proportionnelle à la part de contenu visible
-    const thumbWidthPercent = Math.max((scrollEl.clientWidth / scrollEl.scrollWidth) * 100, 8);
-    thumbEl.style.width = `${thumbWidthPercent}%`;
+  a{color:inherit;text-decoration:none;}
 
-    if (maxScroll <= 0) {
-      thumbEl.style.left = '0%';
-      return;
-    }
-    const progress = scrollEl.scrollLeft / maxScroll; // de 0 à 1
-    const maxLeftPercent = 100 - thumbWidthPercent;
-    thumbEl.style.left = `${progress * maxLeftPercent}%`;
-  };
+  img{max-width:100%;display:block;}
 
-  scrollEl.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-  update(); // position initiale
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 32px;
+  }
 
-  // Déplace le scroll en fonction d'une position horizontale cliquée sur la barre
-  const scrollToPosition = (clientX) => {
-    const rect = trackEl.getBoundingClientRect();
-    const fraction = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
-    const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
-    scrollEl.scrollLeft = fraction * maxScroll;
-  };
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:20px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:Arial,sans-serif;
+    font-weight:900;
+    font-size:1.1rem;
+    letter-spacing:-0.01em;
+  }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-size:0.95rem;
+    font-weight:500;
+  }
+  .nav-links a{
+    color:var(--muted);
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--text);}
 
-  let isDragging = false;
-  let pendingX = null;
-  let rafId = null;
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:80px;
+    overflow:hidden;
+  }
 
-  // On ne met à jour le scroll qu'une fois par frame (via requestAnimationFrame)
-  // plutôt qu'à chaque micro-mouvement de la souris : le suivi est plus doux.
-  const scheduleScroll = (clientX) => {
-    pendingX = clientX;
-    if (rafId !== null) return;
-    rafId = requestAnimationFrame(() => {
-      scrollToPosition(pendingX);
-      rafId = null;
-    });
-  };
+  .hero-glow{
+    position:absolute;
+    top:50%;left:50%;
+    width:900px;height:900px;
+    transform:translate(-50%,-50%);
+    background:
+      radial-gradient(circle at 30% 30%, var(--accent-1) 0%, transparent 45%),
+      radial-gradient(circle at 70% 70%, var(--accent-2) 0%, transparent 45%);
+    opacity:0;
+    filter:blur(80px);
+    animation: heroFadeIn 2.5s ease-out forwards;
+    pointer-events:none;
+  }
 
-  const startDragging = (clientX) => {
-    isDragging = true;
-    thumbEl.classList.add('dragging');
-    // Désactive le "snap" des cartes pendant le glissement : il crée des à-coups
-    scrollEl.style.scrollSnapType = 'none';
-    scrollToPosition(clientX);
-  };
+  @keyframes heroFadeIn{
+    0%{opacity:0; transform:translate(-50%,-50%) scale(0.8);}
+    100%{opacity:0.35; transform:translate(-50%,-50%) scale(1);}
+  }
 
-  const stopDragging = () => {
-    if (!isDragging) return;
-    isDragging = false;
-    thumbEl.classList.remove('dragging');
-    scrollEl.style.scrollSnapType = '';
-    if (rafId !== null) {
-      cancelAnimationFrame(rafId);
-      rafId = null;
-    }
-  };
+  /* Dégradé de fond du hero (bleu/violet vers vert, puis blanc) */
+  .hero-video-overlay{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:linear-gradient(180deg,
+      rgba(123,97,255,0.55) 0%,
+      rgba(0,168,150,0.4) 45%,
+      #FFFFFF 100%);
+  }
 
-  trackEl.addEventListener('pointerdown', (e) => {
-    trackEl.setPointerCapture(e.pointerId);
-    startDragging(e.clientX);
-  });
+  .hero-content{
+    position:relative;
+    z-index:2;
+  }
 
-  trackEl.addEventListener('pointermove', (e) => {
-    if (isDragging) scheduleScroll(e.clientX);
-  });
+  .hero-eyebrow{
+    color:rgba(20,22,26,0.6);
+    font-size:0.95rem;
+    margin-bottom:20px;
+  }
 
-  trackEl.addEventListener('pointerup', stopDragging);
-  trackEl.addEventListener('pointercancel', stopDragging);
+  .hero h1{
+    font-size:clamp(2rem, 5vw, 4rem);
+    max-width:900px;
+    color:#14161A;
+  }
+
+  .hero-sub{
+    margin-top:28px;
+    max-width:820px;
+    color:rgba(20,22,26,0.7);
+    font-size:1.15rem;
+  }
+
+  /* Sur petit écran, le texte revient à la ligne naturellement (pas de coupure forcée) */
+  @media (max-width:900px){
+    .desktop-br{display:none;}
+  }
+
+  .hero-cta{
+    margin-top:40px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border:1px solid rgba(20,22,26,0.25);
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.95rem;
+    width:fit-content;
+    color:#14161A;
+    transition:border-color 0.2s, background 0.2s;
+  }
+  .hero-cta:hover{
+    border-color:var(--accent-2);
+    background:rgba(255,255,255,0.5);
+  }
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{
+    padding:120px 0;
+    border-top:1px solid var(--border);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:56px;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 4vw, 2.8rem);
+  }
+  .section-head p{
+    color:var(--muted);
+    max-width:360px;
+    font-size:1rem;
+  }
+
+  /* ---------- ÉTAPES DE CRÉATION ---------- */
+  .process-section{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+
+  .process-steps{
+    display:flex;
+    padding:0 40px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .process-steps::-webkit-scrollbar{
+    display:none;
+  }
+
+  .process-step{
+    flex:1 1 0;
+    min-width:180px;
+    padding:0 28px 8px 0;
+    border-right:1px solid var(--border);
+    margin-right:28px;
+  }
+  .process-step:last-child{
+    border-right:none;
+    margin-right:0;
+  }
+
+  .process-number{
+    display:block;
+    font-family:Arial,sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--accent-2);
+    margin-bottom:16px;
+  }
+
+  .process-title{
+    font-family:Arial,sans-serif;
+    font-weight:800;
+    font-size:1.1rem;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    color:var(--text);
+  }
+
+  .process-desc{
+    color:var(--muted);
+    font-size:0.9rem;
+    margin-top:10px;
+  }
+
+  @media (max-width:800px){
+    .process-steps{padding:0 20px;}
+    .process-step{min-width:160px;}
+  }
+
+  /* ---------- PROJECTS: BANDEAUX HORIZONTAUX PAR CATÉGORIE ---------- */
+  .project-category{
+    padding:64px 0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .category-head{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:32px;
+  }
+  .category-head h2{
+    font-size:clamp(1.8rem, 3.5vw, 2.6rem);
+  }
+  .category-head p{
+    color:var(--muted);
+    font-size:1rem;
+  }
+
+  /* Bandeau défilant à l'horizontale (scroll natif, glisser au trackpad/tactile) */
+  .h-scroll{
+    display:flex;
+    gap:24px;
+    overflow-x:auto;
+    padding:0 40px 12px;
+    scroll-padding-left:40px;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+  }
+  .h-scroll::-webkit-scrollbar{
+    display:none;
+  }
+
+  /* Curseur / barre de progression du défilement horizontal */
+  .h-scroll-track{
+    position:relative;
+    height:4px;
+    background:var(--border);
+    margin:8px 0 48px;
+    border-radius:4px;
+    cursor:pointer;
+    /* zone de clic un peu plus généreuse que la barre visible */
+    padding:10px 0;
+    background-clip:content-box;
+  }
+
+  .h-scroll-thumb{
+    position:absolute;
+    top:10px;
+    left:0;
+    height:4px;
+    width:20%;
+    background:var(--muted);
+    border-radius:4px;
+    transition:left 0.1s linear;
+    pointer-events:none;
+  }
+
+  .h-scroll-thumb.dragging{
+    transition:none;
+  }
+
+  .project-card{
+    flex:0 0 340px;
+    scroll-snap-align:start;
+    cursor:pointer;
+  }
+
+  .project-thumb{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/3;
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--bg-elevated);
+  }
+
+  .project-cover{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.5s ease;
+  }
+
+  .project-card:hover .project-cover{
+    transform:scale(1.06);
+  }
+
+  .project-cover-video{
+    opacity:0;
+    transition:opacity 0.4s ease;
+  }
+
+  .project-card:hover .project-cover-video{
+    opacity:1;
+  }
+
+  .project-card-body{
+    padding-top:16px;
+  }
+
+  .project-type{
+    display:inline-block;
+    color:var(--accent-2);
+    font-size:0.75rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:6px;
+  }
+
+  .project-title{
+    font-family:Arial,sans-serif;
+    font-weight:800;
+    font-size:1.1rem;
+    letter-spacing:-0.01em;
+    color:var(--text);
+  }
+
+  .project-year{
+    color:var(--muted);
+    font-size:0.85rem;
+    margin-top:4px;
+  }
+
+  @media (max-width:700px){
+    .h-scroll{padding:0 20px 12px; scroll-padding-left:20px;}
+    .project-card{flex-basis:260px;}
+  }
+
+  /* ---------- PARTNERS (défilement horizontal) ---------- */
+  .partners-marquee{
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    -webkit-mask-image:linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image:linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  .partners-track{
+    display:flex;
+    align-items:center;
+    gap:80px;
+    width:max-content;
+    animation: partnersScroll 28s linear infinite;
+  }
+
+  .partners-marquee:hover .partners-track{
+    animation-play-state:paused;
+  }
+
+  @keyframes partnersScroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  .partner-item{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:56px;
+    flex-shrink:0;
+  }
+
+  .partner-item img{
+    max-height:44px;
+    max-width:160px;
+    object-fit:contain;
+    filter:grayscale(1);
+    opacity:0.55;
+    transition:filter 0.3s, opacity 0.3s;
+  }
+
+  .partner-item:hover img{
+    filter:grayscale(0);
+    opacity:1;
+  }
+
+  .partner-item .partner-name{
+    color:var(--muted);
+    font-weight:600;
+    font-size:1.1rem;
+    white-space:nowrap;
+    transition:color 0.2s;
+  }
+
+  .partner-item:hover .partner-name{
+    color:var(--text);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .partners-track{animation:none;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:56px;
+    align-items:start;
+  }
+
+  .about-photo{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    border-radius:14px;
+  }
+
+  .about-text p{
+    font-size:1.15rem;
+    color:var(--muted);
+    max-width:560px;
+  }
+  .about-text p + p{margin-top:20px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    text-align:left;
+  }
+  .contact h2{
+    font-size:clamp(2.2rem, 6vw, 4rem);
+    max-width:700px;
+  }
+  .contact-links{
+    margin-top:40px;
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .contact-links a{
+    font-size:1.1rem;
+    font-weight:600;
+    padding-bottom:4px;
+    border-bottom:1px solid var(--border);
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .contact-links a:hover{
+    border-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  footer{
+    padding:32px;
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85rem;
+    border-top:1px solid var(--border);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:800px){
+    nav{padding:16px 20px;}
+    .nav-links{display:none;}
+    .wrap{padding:0 20px;}
+    .section{padding:80px 0;}
+    .about-grid{grid-template-columns:1fr; gap:32px;}
+    .about-photo{max-width:280px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-glow{animation:none; opacity:0.25;}
+    .project-cover{transition:none;}
+    .partners-track{animation:none;}
+  }
+
+/* ==========================================================
+   PAGE DE DÉTAIL PROJET (project.html)
+   ========================================================== */
+.project-detail-header{
+  padding:160px 0 40px;
+  max-width:800px;
 }
 
-setupScrollCursor(mappingContainer, document.getElementById('mapping-thumb'));
-setupScrollCursor(motionContainer, document.getElementById('motion-thumb'));
+.project-detail-header h1{
+  font-size:clamp(2.2rem, 5vw, 3.4rem);
+  margin-top:16px;
+}
 
-// Génère les logos partenaires à partir de partners.js (dupliqués une fois pour la boucle infinie)
-const partnersContainer = document.getElementById('partners-container');
+.project-detail-desc{
+  color:var(--muted);
+  font-size:1.15rem;
+  margin-top:24px;
+  max-width:640px;
+}
 
-if (partnersContainer && typeof partners !== 'undefined') {
-  const renderPartnerItem = (partner) => {
-    const item = document.createElement('div');
-    item.className = 'partner-item';
+.project-meta-grid{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:24px;
+  padding:32px 0 56px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:56px;
+}
 
-    item.innerHTML = partner.logo
-      ? `<img src="${partner.logo}" alt="${partner.name}" loading="lazy">`
-      : `<span class="partner-name">${partner.name}</span>`;
+.project-meta-item h5{
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--accent-2);
+  font-weight:700;
+  margin-bottom:8px;
+}
 
-    partnersContainer.appendChild(item);
-  };
+.project-meta-item p{
+  font-size:0.95rem;
+  color:var(--text);
+}
 
-  // On répète la liste deux fois : le CSS anime -50% puis reboucle sur la copie identique
-  partners.forEach(renderPartnerItem);
-  partners.forEach(renderPartnerItem);
+.project-media{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  padding-bottom:100px;
+}
+
+.pd-photo-big{
+  width:100%;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+.pd-video-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--bg-elevated);
+}
+
+.pd-video-wrap iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+.pd-photos-duo{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.pd-photos-duo img{
+  width:100%;
+  height:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.project-back{
+  margin-bottom:40px;
+  display:inline-block;
+}
+
+@media (max-width:800px){
+  .project-detail-header{padding:120px 0 32px;}
+  .project-meta-grid{grid-template-columns:repeat(2, 1fr); row-gap:28px;}
+  .pd-photos-duo{grid-template-columns:1fr;}
 }

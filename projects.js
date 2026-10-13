@@ -267,8 +267,8 @@ const projects = [
   {
     slug: "bretagne-enchères",
     title: "Bretagne Enchères",
-    type: "Motion - Diffusion intérieur",
-    description: "À travers une approche poétique et un univers graphique affirmé, je souhaite sublimer l’histoire de Bretagne Enchères. De sa création à son évolution, jusqu’à ses ambitions futures, cette animation mettra en lumière l’identité, les valeurs et le rayonnement de la maison. Diffusion intérieure pour trois soirées privatifs + adaptation pour les réseaux sociaux.",
+    type: "Motion - Diffusion intérieure",
+    description: "À travers une approche poétique et un univers graphique affirmé, je souhaite sublimer l’histoire de Bretagne Enchères. De sa création à son évolution, jusqu’à ses ambitions futures, cette animation mettra en lumière l’identité, les valeurs et le rayonnement de la maison. Diffusion intérieure pour trois soirées privatives + adaptation pour les réseaux sociaux.",
     year: "2026",
     category: "motion",
     client: "Bretagne Enchères",

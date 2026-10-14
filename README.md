@@ -1,2 +1,2 @@
 # Portfolio Eloi
-Artiste vidéo mapping et Motion Designer en Freelance. Je vous accompagne dans la création de vidéos 2D sur mesure, de façon pédagogique, ludique ou poétique
+Motion designer freelance, je crée des vidéos sur mesure pour donner vie à vos idées, transmettre vos messages et raconter vos histoires.
